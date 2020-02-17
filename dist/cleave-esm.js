@@ -1,4 +1,4 @@
-var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 var NumeralFormatter = function (numeralDecimalMark,
                                  numeralIntegerScale,
@@ -649,8 +649,8 @@ var CreditCardDetector = {
         // starts with 4; 16 digits
         visa: /^4\d{0,15}/,
 
-        // starts with 62; 16 digits
-        unionPay: /^62\d{0,14}/
+        // starts with 62/81; 16 digits
+        unionPay: /^(62|81)\d{0,14}/
     },
 
     getStrictBlocks: function (block) {
